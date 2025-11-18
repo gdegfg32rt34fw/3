@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Saffran Patisserie | Location & Hours</title>
+    <meta name="description" content="Visit Saffran Patisserie in Baulkham Hills. Find our location, hours, and contact information. Order authentic Persian desserts for delivery or pickup.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'saffron': '#F4A460',
+                        'cream': '#FFF8DC',
+                        'espresso': '#3C2415',
+                        'rose-petal': '#E8B4B8',
+                        'pistachio': '#93C572',
+                        'warm-gray': '#8B7D6B'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .aurora-bg {
+            background: linear-gradient(45deg, #F4A460, #FFF8DC, #E8B4B8);
+            background-size: 400% 400%;
+            animation: aurora 8s ease-in-out infinite;
+        }
+        
+        @keyframes aurora {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #F4A460, #3C2415);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .persian-pattern {
+            background-image: radial-gradient(circle at 25% 25%, rgba(244, 164, 96, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(232, 180, 184, 0.1) 0%, transparent 50%);
+        }
+        
+        .open-now {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="font-inter bg-cream text-espresso">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-cream/95 backdrop-blur-sm z-50 border-b border-saffron/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="font-playfair text-2xl font-bold text-gradient">Saffran Patisserie</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">Home</a>
+                        <a href="menu.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">Menu</a>
+                        <a href="about.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">About</a>
+                        <a href="contact.html" class="text-saffron font-semibold">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-espresso hover:text-saffron">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-saffron/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-saffron font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 aurora-bg persian-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-playfair text-4xl md:text-6xl font-bold text-gradient mb-6">Visit Us</h1>
+            <p class="text-xl text-warm-gray max-w-2xl mx-auto">Find us in Baulkham Hills and experience authentic Persian patisserie at its finest</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Details -->
+                <div>
+                    <h2 class="font-playfair text-3xl font-bold text-espresso mb-8">Get in Touch</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-saffron rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-espresso" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-espresso text-lg mb-2">Location</h3>
+                                <p class="text-warm-gray leading-relaxed">3/6-10 Old Northern Road<br>Baulkham Hills NSW 2153<br>Sydney, Australia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-rose-petal rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-espresso" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-espresso text-lg mb-2">Phone</h3>
+                                <p class="text-warm-gray text-lg">(02) 7807 1482</p>
+                                <p class="text-sm text-warm-gray mt-1">Call us for orders and inquiries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-pistachio rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-espresso" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-espresso text-lg mb-2">Email</h3>
+                                <p class="text-warm-gray">saffranpatisserie@gmail.com</p>
+                                <p class="text-sm text-warm-gray mt-1">For general inquiries and catering</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-saffron/20 to-rose-petal/20 rounded-2xl h-96 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-saffron rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-espresso" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-playfair text-2xl font-bold text-espresso mb-2">Find Us in Baulkham Hills</h3>
+                            <p class="text-warm-gray mb-4">Located in the heart of Sydney's Persian community</p>
+                            <a href="https://maps.google.com/?q=3/6-10+Old+Northern+Road,+Baulkham+Hills+NSW+2153" target="_blank" class="bg-saffron hover:bg-saffron/90 text-espresso px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
+                                </svg>
+                                Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="py-20 aurora-bg persian-pattern">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6">Business Hours</h2>
+                <p class="text-xl text-warm-gray">Visit us during these hours for the freshest Persian desserts</p>
+            </div>
+            
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-playfair text-2xl font-bold text-espresso mb-6">Regular Hours</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-3 border-b border-saffron/20 bg-red-50 rounded-lg px-4">
+                                <span class="font-semibold text-red-600">Monday</span>
+                                <span class="text-red-600 font-semibold">Closed</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-saffron/20">
+                                <span class="font-semibold text-espresso">Tuesday</span>
+                                <span class="text-warm-gray">9:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-saffron/20">
+                                <span class="font-semibold text-espresso">Wednesday</span>
+                                <span class="text-warm-gray">9:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-saffron/20">
+                                <span class="font-semibold text-espresso">Thursday</span>
+                                <span class="text-warm-gray">9:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-saffron/20">
+                                <span class="font-semibold text-espresso">Friday</span>
+                                <span class="text-warm-gray">9:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-saffron/20">
+                                <span class="font-semibold text-espresso">Saturday</span>
+                                <span class="text-warm-gray">9:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3">
+                                <span class="font-semibold text-espresso">Sunday</span>
+                                <span class="text-warm-gray">9:00 AM - 6:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-playfair text-2xl font-bold text-espresso mb-6">Special Hours</h3>
+                        <div class="space-y-4">
+                            <div class="bg-cream rounded-lg p-4">
+                                <h4 class="font-semibold text-espresso mb-2">Public Holidays</h4>
+                                <p class="text-warm-gray text-sm">Hours may vary during public holidays. Please call ahead to confirm.</p>
+                            </div>
+                            <div class="bg-saffron/20 rounded-lg p-4">
+                                <h4 class="font-semibold text-espresso mb-2">Catering Orders</h4>
+                                <p class="text-warm-gray text-sm">Large orders and catering requests require 24-48 hours advance notice.</p>
+                            </div>
+                            <div class="bg-rose-petal/20 rounded-lg p-4">
+                                <h4 class="font-semibold text-espresso mb-2">Fresh Daily</h4>
+                                <p class="text-warm-gray text-sm">All our desserts are made fresh daily. Visit early for the best selection!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Platforms -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6">Order Online</h2>
+                <p class="text-xl text-warm-gray max-w-2xl mx-auto">Get our authentic Persian desserts delivered fresh to your door</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-black to-gray-800 rounded-2xl p-8 text-white text-center shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">Uber Eats</h3>
+                    <p class="text-gray-300 mb-6">Fast delivery service bringing our desserts directly to your home or office.</p>
+                    <a href="https://www.ubereats.com/au/store/saffran-patisserie/EcCte9nXRRWm6nk5oxqvTA" target="_blank" class="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 inline-block">
+                        Order on Uber Eats
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 text-white text-center shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">DoorDash</h3>
+                    <p class="text-red-100 mb-6">Reliable delivery with real-time tracking for your favorite Persian desserts.</p>
+                    <a href="https://www.doordash.com/en-AU/store/saffran-patisserie-baulkham-hills-1970557/" target="_blank" class="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 inline-block">
+                        Order on DoorDash
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 aurora-bg persian-pattern">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6 leading-tight py-2">Send Us a Message</h2>
+                <p class="text-xl text-warm-gray">Have a question about our desserts or need catering information? We'd love to hear from you!</p>
+            </div>
+            
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                <form id="contact-form" class="space-y-6" action="mailto:saffranpatisserie@gmail.com" method="POST" enctype="text/plain">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-espresso font-semibold mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-saffron/30 focus:border-saffron focus:outline-none transition-colors duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-espresso font-semibold mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-saffron/30 focus:border-saffron focus:outline-none transition-colors duration-300">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-espresso font-semibold mb-2">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-saffron/30 focus:border-saffron focus:outline-none transition-colors duration-300">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-espresso font-semibold mb-2">Subject</label>
+                        <select id="subject" name="subject" required class="w-full px-4 py-3 rounded-lg border border-saffron/30 focus:border-saffron focus:outline-none transition-colors duration-300">
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="catering">Catering Request</option>
+                            <option value="order">Order Question</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-espresso font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-saffron/30 focus:border-saffron focus:outline-none transition-colors duration-300 resize-none" placeholder="Tell us how we can help you..."></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-saffron hover:bg-saffron/90 text-espresso px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Satisfaction Chart -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6">Customer Satisfaction</h2>
+                <p class="text-xl text-warm-gray">See what our customers think about our service and desserts</p>
+            </div>
+            
+            <div class="bg-cream rounded-2xl p-8">
+                <div id="satisfaction-chart" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-espresso text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="font-playfair text-3xl font-bold text-saffron mb-4">Saffran Patisserie</h3>
+                <p class="text-cream/80 mb-6">Family-owned Persian patisserie since 1987</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm mb-6">
+                    <span>📍 3/6-10 Old Northern Rd, Baulkham Hills NSW 2153</span>
+                    <span>📞 (02) 7807 1482</span>
+                </div>
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="https://www.facebook.com/Saffranpatisserie/" target="_blank" class="text-cream hover:text-saffron transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/saffranpatisserie/" target="_blank" class="text-cream hover:text-saffron transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-cream/20">
+                    <p class="text-cream/60 text-sm">&copy; 2025 Saffran Patisserie. All rights reserved. Crafted with ❤️ in Sydney.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize customer satisfaction chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartDom = document.getElementById('satisfaction-chart');
+            const myChart = echarts.init(chartDom);
+            
+            const option = {
+                title: {
+                    text: 'Customer Ratings',
+                    left: 'center',
+                    textStyle: {
+                        color: '#3C2415',
+                        fontSize: 18,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'horizontal',
+                    bottom: '0%',
+                    textStyle: {
+                        color: '#8B7D6B'
+                    }
+                },
+                series: [
+                    {
+                        name: 'Customer Ratings',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        center: ['50%', '45%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '16',
+                                fontWeight: 'bold',
+                                color: '#3C2415'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 85, name: '5 Stars', itemStyle: { color: '#F4A460' } },
+                            { value: 12, name: '4 Stars', itemStyle: { color: '#E8B4B8' } },
+                            { value: 2, name: '3 Stars', itemStyle: { color: '#93C572' } },
+                            { value: 1, name: '2 Stars', itemStyle: { color: '#8B7D6B' } }
+                        ]
+                    }
+                ]
+            };
+            
+            myChart.setOption(option);
+            
+            // Make chart responsive
+            window.addEventListener('resize', function() {
+                myChart.resize();
+            });
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

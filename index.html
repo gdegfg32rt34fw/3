@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saffran Patisserie - Authentic Persian Desserts | Baulkham Hills</title>
+    <meta name="description" content="Family-owned Persian patisserie since 1987. Traditional baklava, Persian cookies, and Middle Eastern sweets in Baulkham Hills. Order on Uber Eats & DoorDash.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'saffron': '#F4A460',
+                        'cream': '#FFF8DC',
+                        'espresso': '#3C2415',
+                        'rose-petal': '#E8B4B8',
+                        'pistachio': '#93C572',
+                        'warm-gray': '#8B7D6B'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .aurora-bg {
+            background: linear-gradient(45deg, #F4A460, #FFF8DC, #E8B4B8);
+            background-size: 400% 400%;
+            animation: aurora 8s ease-in-out infinite;
+        }
+        
+        @keyframes aurora {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-image {
+            background-image: url('resources/hero-patisserie.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #F4A460, #3C2415);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .persian-pattern {
+            background-image: radial-gradient(circle at 25% 25%, rgba(244, 164, 96, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(232, 180, 184, 0.1) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="font-inter bg-cream text-espresso">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-cream/95 backdrop-blur-sm z-50 border-b border-saffron/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="font-playfair text-2xl font-bold text-gradient">Saffran Patisserie</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">Home</a>
+                        <a href="menu.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">Menu</a>
+                        <a href="about.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">About</a>
+                        <a href="contact.html" class="text-espresso hover:text-saffron transition-colors duration-300 font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-espresso hover:text-saffron">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-saffron/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-espresso hover:text-saffron transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-image min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <h1 class="font-playfair text-5xl md:text-7xl font-bold mb-6 opacity-0" id="hero-title">
+                Authentic Persian
+                <span class="block text-saffron h-20 md:h-24 flex items-center justify-center">
+                    <span id="typewriter-text" class="inline-block min-w-[280px] md:min-w-[400px] text-center"></span>
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light opacity-0" id="hero-subtitle">
+                Family-owned since 1987, bringing the finest Middle Eastern desserts from Tehran to Sydney
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0" id="hero-buttons">
+                <a href="menu.html" class="bg-saffron hover:bg-saffron/90 text-espresso px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                    Explore Our Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="py-20 aurora-bg persian-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6 leading-tight py-2">Our Signature Delights</h2>
+                <p class="text-xl text-warm-gray max-w-2xl mx-auto">Discover our most beloved Persian pastries, crafted with traditional recipes passed down through generations</p>
+            </div>
+            
+            <div class="splide" id="featured-products">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden mx-4">
+                                <img src="https://kimi-web-img.moonshot.cn/img/static.ticimax.cloud/464bf44e1d2a9247927f335227e5410af6515e5a.png" alt="Traditional Baklava" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-playfair text-2xl font-bold text-espresso mb-2">Signature Baklava</h3>
+                                    <p class="text-warm-gray mb-4">Layers of crispy phyllo pastry with premium pistachios and walnuts, infused with rose water honey syrup</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-2xl font-bold text-saffron">$20.00</span>
+                                        <a href="menu.html" class="bg-saffron hover:bg-saffron/90 text-espresso px-6 py-2 rounded-full font-semibold transition-all duration-300">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden mx-4">
+                                <img src="https://kimi-web-img.moonshot.cn/img/assets.epicurious.com/4901e5feab52ef19221a1a86279fab4d207b5480.jpg" alt="Persian Cookies" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-playfair text-2xl font-bold text-espresso mb-2">Mix Persian Cookies</h3>
+                                    <p class="text-warm-gray mb-4">Assorted traditional cookies including walnut, coconut, sultana, almond and rice varieties</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-2xl font-bold text-saffron">$19.50</span>
+                                        <a href="menu.html" class="bg-saffron hover:bg-saffron/90 text-espresso px-6 py-2 rounded-full font-semibold transition-all duration-300">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden mx-4">
+                                <img src="https://kimi-web-img.moonshot.cn/img/persianmama.com/8ad7494b3123b353eccd0fa000b9fb3e9637c130.jpg" alt="Creamy Pastries" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-playfair text-2xl font-bold text-espresso mb-2">Mix Creamy Pastries</h3>
+                                    <p class="text-warm-gray mb-4">Delicate cream-filled pastries including rolls, cream puffs, slices and traditional latife</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-2xl font-bold text-saffron">$20.50</span>
+                                        <a href="menu.html" class="bg-saffron hover:bg-saffron/90 text-espresso px-6 py-2 rounded-full font-semibold transition-all duration-300">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6 leading-tight py-2">What Our Customers Say</h2>
+                <p class="text-xl text-warm-gray">Real reviews from our beloved customers</p>
+            </div>
+            
+            <div class="splide" id="testimonials">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-cream rounded-2xl p-8 mx-4 text-center">
+                                <div class="flex justify-center mb-4">
+                                    <div class="flex text-saffron">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-espresso mb-6 italic">"These are really tasty pastries. The lady was so helpful with suggestions. Enjoying a baklava now while writing this review."</p>
+                                <h4 class="font-semibold text-espresso">Francine Khoo</h4>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-cream rounded-2xl p-8 mx-4 text-center">
+                                <div class="flex justify-center mb-4">
+                                    <div class="flex text-saffron">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-espresso mb-6 italic">"Baklava and Bamia & Goshe Fill were crispy, tasty and perfectly syrupped. One of the best in the area!"</p>
+                                <h4 class="font-semibold text-espresso">Marianne Mapa</h4>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-cream rounded-2xl p-8 mx-4 text-center">
+                                <div class="flex justify-center mb-4">
+                                    <div class="flex text-saffron">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-espresso mb-6 italic">"A real Iranian sweets experience in Sydney. Highly recommend!"</p>
+                                <h4 class="font-semibold text-espresso">Matthew Golchin</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Now Section -->
+    <section class="py-20 aurora-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gradient mb-6 leading-tight py-2">Ready to Indulge?</h2>
+            <p class="text-xl text-warm-gray mb-12 max-w-2xl mx-auto">Experience the authentic taste of Persian patisserie, delivered fresh to your door</p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://www.ubereats.com/au/store/saffran-patisserie/EcCte9nXRRWm6nk5oxqvTA" target="_blank" class="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                    </svg>
+                    Order on Uber Eats
+                </a>
+                <a href="https://www.doordash.com/en-AU/store/saffran-patisserie-baulkham-hills-1970557/" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Order on DoorDash
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-espresso text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="font-playfair text-3xl font-bold text-saffron mb-4">Saffran Patisserie</h3>
+                <p class="text-cream/80 mb-6">Family-owned Persian patisserie since 1987</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm mb-6">
+                    <span>📍 3/6-10 Old Northern Rd, Baulkham Hills NSW 2153</span>
+                    <span>📞 (02) 7807 1482</span>
+                </div>
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="https://www.facebook.com/Saffranpatisserie/" target="_blank" class="text-cream hover:text-saffron transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/saffranpatisserie/" target="_blank" class="text-cream hover:text-saffron transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-cream/20">
+                    <p class="text-cream/60 text-sm">&copy; 2025 Saffran Patisserie. All rights reserved. Crafted with ❤️ in Sydney.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
